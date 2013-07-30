@@ -116,7 +116,8 @@ def p_char_class_list(p):
     p[0].append(p[2])
 
 def p_char_class_list_base(p):
-    'char_class_list : char_class'
+    '''char_class_list : HYPHEN
+                       | char_class'''
     p[0] = [p[1]]
 
 def p_char_class_char(p):

@@ -55,7 +55,7 @@ def t_COMMENT(t):
     r'/\*(.|\n)*?\*/'
     pass
 
-t_charclass_CLASSCHAR = r'[^\-\#\^\]]'
+t_charclass_CLASSCHAR = r'([^\-\#\]]|\#(?!x))'
 t_charclass_CARET = r'\^'
 t_charclass_ignore = r''
 
