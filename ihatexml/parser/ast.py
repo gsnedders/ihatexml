@@ -26,7 +26,7 @@ class Alternation(object):
         self.options = options
 
     def __str__(self):
-        return " | ".join(map(lambda x: "(%s)" % x, self.options))
+        return "(%s)" % (" | ".join(map(lambda x: "(%s)" % x, self.options)))
 
 class SymbolRef(object):
     __slots__ = ["symbol"]
