@@ -75,7 +75,7 @@ t_NEWLINE = r'(\r?\n)+'
 
 t_ignore = '\x20\t'
 
-lexer = lex.lex(debug=True)
+lexer = lex.lex()
 
 if __name__ == '__main__':
     lex.runmain()
