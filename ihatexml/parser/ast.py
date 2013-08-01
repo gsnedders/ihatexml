@@ -62,6 +62,18 @@ class Repetition(Node):
         self.min = min
         self.max = max
 
+    def __str__(self):
+        inf = float("inf")
+        min, max = self.min, self.max
+        if min == 0 and max == 1:
+            return "%s?" % self.expression
+        elif min == 0 and max == inf:
+            return "%s*" % self.expression
+        elif min == 1 and max == inf:
+            return "%s+" % self.expression
+        else:
+            return repr(self)
+
 class CharClass(Node):
     __slots__ = ["negated", "chars", "ranges"]
     def __init__(self, negated, chars, ranges):
