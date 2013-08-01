@@ -75,7 +75,7 @@ class Alternation(Node):
         self.options = options
 
     def __str__(self):
-        return "(%s)" % (" | ".join(map(lambda x: "(%s)" % x, self.options)))
+        return "(%s)" % (" | ".join(map(str, self.options)))
 
 class SymbolRef(Node):
     __slots__ = ["name"]
@@ -92,7 +92,7 @@ class Difference(Node):
         self.comparison = comparison
 
     def __str__(self):
-        return "%s - %s" % (self.base, self.comparison)
+        return "(%s - %s)" % (self.base, self.comparison)
 
 class Follows(Node):
     __slots__ = ["order"]
@@ -101,4 +101,4 @@ class Follows(Node):
 
     def __str__(self):
         assert len(self.order) > 1
-        return " ".join(map(str, self.order))
+        return "(%s)" % (" ".join(map(str, self.order)))
