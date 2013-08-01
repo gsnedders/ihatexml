@@ -55,6 +55,16 @@ def t_COMMENT(t):
     r'/\*(.|\n)*?\*/'
     pass
 
+def t_DQUOTE_STRING(t):
+    r'"[^"]*"'
+    t.value = t.value[1:-1]
+    return t
+
+def t_QUOTE_STRING(t):
+    r"'[^']*'"
+    t.value = t.value[1:-1]
+    return t
+
 t_charclass_CLASSCHAR = r'([^\-\#\]]|\#(?!x))'
 t_charclass_CARET = r'\^'
 t_charclass_ignore = r''
@@ -63,8 +73,6 @@ t_INITIAL_charclass_HYPHEN = r'\-'
 
 t_SYMBOL = r'[A-Za-z]+'
 t_DEFINE = r'::='
-t_DQUOTE_STRING = r'"[^"]*"'
-t_QUOTE_STRING = r"'[^']*'"
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_QUESTION = r'\?'
