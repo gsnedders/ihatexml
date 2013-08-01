@@ -20,7 +20,7 @@ def p_error(p):
 def p_definition_list_base(p):
     'definitionList : definition'
     name, value = p[1]
-    p[0] = {name: value} 
+    p[0] = ast.DefinitionDict([(name, value)])
 
 def p_definition_list_recurse(p):
     'definitionList : definitionList NEWLINE definition'
