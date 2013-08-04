@@ -24,7 +24,7 @@ def p_definition_list_base(p):
 
 def p_definition_list_recurse(p):
     'definitionList : definitionList NEWLINE definition'
-    name, value = p[2]
+    name, value = p[3]
     p[0] = p[1]
     p[0][name] = value
 
