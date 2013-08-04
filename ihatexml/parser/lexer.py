@@ -26,6 +26,10 @@ def t_VC(t):
     r'\[[\x20\t]*[vV][cC][\x20\t]*\:[^\]]+\]'
     pass
 
+def t_NSC(t):
+    r'\[[\x20\t]*[nN][sS][cC][\x20\t]*\:[^\]]+\]'
+    pass
+
 def t_INITIAL_charclass_ESCAPECHAR(t):
     r'\#x[0-9A-Fa-f]+'
     try:
