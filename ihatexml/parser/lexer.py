@@ -16,7 +16,12 @@ states = (
 )
 
 def t_ANY_error(t):
-    raise SyntaxError("Parse error, unexpected character '%s'" % t.value[0])
+    try:
+        p = t.value.index("\n")
+    except ValueError:
+        t.lexer.skip(len(t.value))
+    else:
+        t.lexer.skip(p + 1)
 
 def t_WFC(t):
     r'\[[\x20\t]*[wW][fF][cC][\x20\t]*\:[^\]]+\]'

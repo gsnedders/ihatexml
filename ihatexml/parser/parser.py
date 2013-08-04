@@ -10,12 +10,12 @@ precedence = (
 )
 
 def p_error(p):
-    print("Parse error")
     while True:
         tok = yacc.token()
         if not tok or tok.type == 'NEWLINE':
             break
-    yacc.restart()
+    yacc.errok()
+    return tok
 
 def p_definition_list_base(p):
     'definitionList : definition'
