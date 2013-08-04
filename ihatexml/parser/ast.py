@@ -1,3 +1,5 @@
+from copy import copy
+
 class Node(object):
     def dfs(self):
         """Depth first-search from a node, preorder"""
@@ -80,6 +82,23 @@ class CharClass(Node):
         self.negated = negated
         self.chars = chars
         self.ranges = ranges
+
+    def __str__(self):
+        chars = copy(self.chars)
+        s = ["["]
+        if self.negated:
+            s.append("^")
+        else:
+            #assert "^" not in chars
+            pass
+        if "-" in chars:
+            chars.remove("-")
+            s.append("-")
+        s.extend(chars)
+        for range in self.ranges:
+            s.append("#x%X-#x%X" % tuple(map(ord, range)))
+        s.append("]")
+        return "".join(s)
 
 class Alternation(Node):
     __slots__ = ["options"]
