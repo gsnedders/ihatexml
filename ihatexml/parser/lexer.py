@@ -30,6 +30,10 @@ def t_NSC(t):
     r'\[[\x20\t]*[nN][sS][cC][\x20\t]*\:[^\]]+\]'
     pass
 
+def t_NEWLINE(t):
+    r'(\r?\n)+'
+    t.lexer.lineno += t.value.count('\n')
+
 def t_INITIAL_charclass_ESCAPECHAR(t):
     r'\#x[0-9A-Fa-f]+'
     try:
@@ -83,7 +87,6 @@ t_QUESTION = r'\?'
 t_BAR = r'\|'
 t_PLUS = r'\+'
 t_ASTERISK = r'\*'
-t_NEWLINE = r'(\r?\n)+'
 
 t_ignore = '\x20\t'
 
