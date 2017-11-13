@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 try:
     import xml.etree.cElementTree as etree
 except ImportError:
@@ -30,8 +32,8 @@ def get_prod(prod):
     for rhs in rhses:
         for com in rhs.findall("./com"):
             strip_element(rhs, com)
-    lhs_str = etree.tostring(lhs, "unicode", "text")
-    rhses_str = map(lambda x: etree.tostring(x, "unicode", "text"), rhses)
+    lhs_str = etree.tostring(lhs, "utf-8", "text").decode("utf-8")
+    rhses_str = map(lambda x: etree.tostring(x, "utf-8", "text").decode("utf-8"), rhses)
     return "%s ::= %s" % (lhs_str.strip(), spaces.sub(" ", "".join(rhses_str)).strip())
 
 def get_all_prods(doc):

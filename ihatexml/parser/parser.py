@@ -10,11 +10,14 @@ precedence = (
 )
 
 def p_error(p):
+    if not p:
+        # EOF
+        return
     while True:
-        tok = yacc.token()
+        tok = p.token()
         if not tok or tok.type == 'NEWLINE':
             break
-    yacc.errok()
+    p.errok()
     return tok
 
 def p_definition_list_base(p):

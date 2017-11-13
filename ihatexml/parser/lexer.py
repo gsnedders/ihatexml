@@ -93,7 +93,7 @@ t_BAR = r'\|'
 t_PLUS = r'\+'
 t_ASTERISK = r'\*'
 
-t_ignore = '\x20\t'
+t_ignore = '\x20\t\xa0'
 
 lexer = lex.lex()
 
