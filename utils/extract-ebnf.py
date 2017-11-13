@@ -7,7 +7,7 @@ except ImportError:
 
 import re
 
-spaces = re.compile("[\x20\x09\x0A\x0D]+")
+spaces = re.compile("[\x20\x09\x0A\x0D\xA0]+")
 
 def strip_element(parent, element):
     tail = element.tail
